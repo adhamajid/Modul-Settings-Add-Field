@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add configuration settings for vendor requests -->
+    <record id="res_config_settings_view_form_vendor_request" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.vendor.request</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div name="purchase_settings" position="after">
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="auto_approve_vendor_requests"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="auto_approve_vendor_requests"/>
+                        <div class="text-muted">
+                            Automatically approve vendor registration requests without manual review
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 o_setting_box">
+                    <div class="o_setting_left_pane">
+                        <field name="vendor_request_notification_emails"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="vendor_request_notification_emails"/>
+                        <div class="text-muted">
+                            Email addresses to notify when new vendor requests are submitted (comma separated)
+                        </div>
+                        <div class="content-group" attrs="{'invisible': [('vendor_request_notification_emails', '=', False)]}">
+                            <div class="mt16">
+                                <field name="vendor_request_notification_emails" placeholder="admin@company.com, purchase@company.com" class="o_light_label"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</odoo>
